@@ -53,3 +53,37 @@ function getGreeting(user) {
 >>Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.
 
 For example, class becomes className in JSX, and tabindex becomes tabIndex.
+
+
+### JSX Represents Objects
+>> Babel compiles JSX down to React.createElement() calls.
+
+* These two examples are identical:
+```
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+```
+```
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+```
+
+>> React.createElement() performs a few checks to help you write bug-free code but essentially it creates an object like this:
+
+```
+// Note: this structure is simplified
+const element = {
+  type: 'h1',
+  props: {
+    className: 'greeting',
+    children: 'Hello, world!'
+  }
+};
+
+```
