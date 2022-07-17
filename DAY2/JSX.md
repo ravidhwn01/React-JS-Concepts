@@ -35,3 +35,21 @@ const element = (
   </h1>
 );
 ```
+
+## JSX is an Expression Too
+>> you can use JSX inside of if statements and for loops, assign it to variables, accept it as arguments, and return it from functions:
+```
+function getGreeting(user) {
+  if (user) {
+    return <h1>Hello, {formatName(user)}!</h1>;
+  }
+  return <h1>Hello, Stranger.</h1>;
+}
+
+```
+
+### Warning:
+
+>>Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.
+
+For example, class becomes className in JSX, and tabindex becomes tabIndex.
